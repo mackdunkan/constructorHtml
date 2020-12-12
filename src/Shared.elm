@@ -16,6 +16,16 @@ import Css.Global exposing (global, selector)
 import Css.ModernNormalize
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (css, href, rel)
+import I18Next as TR
+    exposing
+        ( Delims(..)
+        , Translations
+        , t
+        , tr
+        , translationsDecoder
+        )
+import Json.Decode
+import Json.Encode
 import PF.Theme as PFT
 import Spa.Document exposing (Document)
 import Spa.Generated.Route as Route
@@ -28,20 +38,29 @@ import Url exposing (Url)
 
 
 type alias Flags =
-    ()
+    Json.Encode.Value
+
+
+type InitTranslation
+    = Initialized Translations
+    | Failed Json.Decode.Error
 
 
 type alias Model =
     { url : Url
     , key : Key
+    , translations : InitTranslation
     }
 
 
 init : Flags -> Url -> Key -> ( Model, Cmd Msg )
 init flags url key =
-    ( Model url key
-    , Cmd.none
-    )
+    case Json.Decode.decodeValue translationsDecoder flags of
+        Ok translations ->
+            ( Model url key (Initialized translations), Cmd.none )
+
+        Err err ->
+            ( Model url key (Failed err), Cmd.none )
 
 
 
@@ -78,18 +97,24 @@ view { page, toMsg } model =
         [ Css.ModernNormalize.globalStyledHtml
         , globalCss
         , node "link" [ href "https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap", rel "stylesheet" ] []
-        , div []
-            [ viewMenu
-            , Components.Header.V_1.view {}
-            , div
-                [ css
-                    [ PFT.containerWrapPDF
-                    , TW.my_8
+        , case model.translations of
+            Initialized t ->
+                div []
+                    [ viewMenu
+                    , Components.Header.V_1.view {}
+                    , h1 [] [ text (TR.t t "hello") ]
+                    , div
+                        [ css
+                            [ PFT.containerWrapPDF
+                            , TW.my_8
+                            ]
+                        ]
+                        page.body
+                    , Components.Footer.V_1.view {}
                     ]
-                ]
-                page.body
-            , Components.Footer.V_1.view {}
-            ]
+
+            Failed error ->
+                p [] [ text "Error: Cannot proccess translation data" ]
         ]
     }
 
