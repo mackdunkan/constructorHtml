@@ -1,5 +1,6 @@
 module Shared exposing
     ( Flags
+    , Layout
     , Model
     , Msg
     , init
@@ -9,8 +10,8 @@ module Shared exposing
     )
 
 import Browser.Navigation exposing (Key)
-import Components.Footer.V_1
-import Components.Header.V_1
+import Components.Footer.Footer as Footer
+import Components.Header.Header as Header
 import Css exposing (..)
 import Css.Global exposing (global, selector)
 import Css.ModernNormalize
@@ -41,6 +42,12 @@ type alias Flags =
     Json.Encode.Value
 
 
+type alias Layout =
+    { header : Int
+    , footer : Int
+    }
+
+
 type InitTranslation
     = Initialized Translations
     | Failed Json.Decode.Error
@@ -50,6 +57,7 @@ type alias Model =
     { url : Url
     , key : Key
     , translations : InitTranslation
+    , layout : Layout
     }
 
 
@@ -57,10 +65,10 @@ init : Flags -> Url -> Key -> ( Model, Cmd Msg )
 init flags url key =
     case Json.Decode.decodeValue translationsDecoder flags of
         Ok translations ->
-            ( Model url key (Initialized translations), Cmd.none )
+            ( Model url key (Initialized translations) (Layout 3 3), Cmd.none )
 
         Err err ->
-            ( Model url key (Failed err), Cmd.none )
+            ( Model url key (Failed err) (Layout 0 0), Cmd.none )
 
 
 
@@ -100,9 +108,9 @@ view { page, toMsg } model =
         , case model.translations of
             Initialized t ->
                 div []
-                    [ viewMenu
-                    , Components.Header.V_1.view {}
-                    , h1 [] [ text (TR.t t "hello") ]
+                    [ Header.view { version = model.layout.header }
+
+                    --, h1 [] [ text (TR.t t "header.version") ]
                     , div
                         [ css
                             [ PFT.containerWrapPDF
@@ -110,7 +118,7 @@ view { page, toMsg } model =
                             ]
                         ]
                         page.body
-                    , Components.Footer.V_1.view {}
+                    , Footer.view { version = model.layout.footer }
                     ]
 
             Failed error ->

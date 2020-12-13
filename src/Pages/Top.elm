@@ -1,10 +1,10 @@
 module Pages.Top exposing (Model, Msg, Params, page)
 
-import Css exposing (border3, borderColor, borderStyle, color, hidden, px, solid, top, verticalAlign)
+import Css exposing (backgroundColor, border3, borderColor, borderStyle, color, hidden, px, solid, top, verticalAlign)
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (align, css)
-import PF.Color as PFC
-import PF.Element as PFE
+import PF.Color as TC
+import PF.Element as TE
 import Spa.Document exposing (Document)
 import Spa.Page as Page exposing (Page)
 import Spa.Url exposing (Url)
@@ -57,17 +57,49 @@ view : Url Params -> Document Msg
 view { params } =
     { title = "Homepage"
     , body =
-        [ sectionBankAccount
+        [ sectionNamePage
+        , sectionBankAccount
+        , sectionBlockInfo
         , div [] (List.map sectionContact dataContact)
         ]
     }
+
+
+sectionNamePage : Html msg
+sectionNamePage =
+    div
+        [ css
+            [ TW.my_4
+            ]
+        ]
+        [ h1
+            [ css
+                [ color <| TC.blue_dark
+                , TW.text_3xl
+                , TW.font_bold
+                , TW.text_center
+                ]
+            ]
+            [ text "Corporate Account Statement" ]
+        , p [ css [ color <| TC.blue_dark, TW.text_center, TW.text_xl ] ] [ text "Probitas Fidelis Ltd is registered in England and" ]
+        ]
+
+
+sectionBlockInfo : Html msg
+sectionBlockInfo =
+    div []
+        [ div [] [ TE.headSection_20_blue "Your Details" ]
+        , div [ css [ TW.mt_2, TW.p_4, color TC.blue_dark, backgroundColor TC.blue_100 ] ]
+            [ p [] [ text "text" ]
+            ]
+        ]
 
 
 sectionBankAccount : Html msg
 sectionBankAccount =
     let
         border =
-            border3 (px 2) solid PFC.blue_dark
+            border3 (px 2) solid TC.blue_dark
 
         trItem : TableItem -> Html msg
         trItem i =
@@ -77,14 +109,14 @@ sectionBankAccount =
                 ]
     in
     div [ css [ TW.my_8 ] ]
-        [ PFE.headSection_24 "Bank Account"
+        [ TE.headSection_24 "Bank Account"
         , div [ css [ TW.mt_4, border, TW.rounded_lg ] ]
             [ table
                 [ css
                     [ TW.border_collapse
                     , TW.overflow_hidden
                     , borderStyle hidden
-                    , color PFC.blue_dark
+                    , color TC.blue_dark
                     ]
                 ]
                 [ tbody []
@@ -106,7 +138,7 @@ sectionContact dep =
                 TW.grid_cols_3
     in
     div [ css [ TW.my_8 ] ]
-        [ PFE.headSection_18 dep.title
+        [ TE.headSection_18 dep.title
         , div [ css [ TW.mt_8, TW.grid, TW.gap_8, column ] ]
             (List.map contactItem dep.contacts)
         ]
@@ -114,7 +146,7 @@ sectionContact dep =
 
 contactItem : Contact -> Html msg
 contactItem contact =
-    div [ css [ color PFC.blue_dark, TW.grid, TW.gap_1 ] ]
+    div [ css [ color TC.blue_dark, TW.grid, TW.gap_1 ] ]
         [ div [ css [ TW.font_bold ] ] [ text contact.fullName ]
         , div [] [ text contact.phone ]
         , div [] [ text contact.email ]
