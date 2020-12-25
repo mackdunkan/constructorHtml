@@ -115,6 +115,6 @@ version_4 =
             ]
         ]
         [ div [ css [ TH.containerWrapPDF ] ]
-            [ div [ css [ color <| TC.blue_dark, TW.text_xs ] ] [ text "“MEPAY” limited liability company /registration number 264.110.1122587, TIN00219684/" ]
+            [ div [ css [ color <| TC.blue_dark, TW.text_xs ] ] [ text "“MEPAY” limited liability company, registration number 264.110.1122587, TIN00219684." ]
             ]
         ]

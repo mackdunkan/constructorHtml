@@ -123,7 +123,7 @@ sectionBlockTable : Html msg
 sectionBlockTable =
     let
         tdCss =
-            Css.batch [ TW.p_4 ]
+            Css.batch [ TW.p_1 ]
     in
     div []
         [ div [] [ headSection [ css [ color grey, TW.text_xl ] ] [ text "Date" ] ]

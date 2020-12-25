@@ -190,7 +190,7 @@ version_4 =
                     , TW.items_center
                     ]
                 ]
-                [ div [ css [ TW.block, TW.w_36 ] ]
+                [ div [ css [ TW.block, TW.w_60 ] ]
                     [ TI.logoMoons ]
                 , info_moons <| hex "000"
                 ]
