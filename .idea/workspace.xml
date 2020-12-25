@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="51ca46e7-a025-4a18-88b7-d7eb08d78964" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Components/Footer/Footer.elm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Header/Header.elm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Switch/Switch.elm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/translations/translations.en.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Footer/V_1.elm" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Footer/V_1.elm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Footer/V_2.elm" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Footer/V_2.elm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Header/V_1.elm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PF/Color.elm" beforeDir="false" afterPath="$PROJECT_DIR$/src/PF/Color.elm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Footer/Footer.elm" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Footer/Footer.elm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Header/Header.elm" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Header/Header.elm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PF/Element.elm" beforeDir="false" afterPath="$PROJECT_DIR$/src/PF/Element.elm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PF/Svg.elm" beforeDir="false" afterPath="$PROJECT_DIR$/src/PF/Svg.elm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Pages/Top.elm" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Top.elm" afterDir="false" />
@@ -121,6 +114,12 @@
       <workItem from="1607676221803" duration="18458000" />
       <workItem from="1607718430986" duration="9153000" />
       <workItem from="1607792204171" duration="4023000" />
+      <workItem from="1608206941982" duration="1630000" />
+      <workItem from="1608209453330" duration="632000" />
+      <workItem from="1608550989438" duration="1709000" />
+      <workItem from="1608553864684" duration="1292000" />
+      <workItem from="1608584114814" duration="155000" />
+      <workItem from="1608880863383" duration="12292000" />
     </task>
     <servers />
   </component>

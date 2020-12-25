@@ -25,6 +25,9 @@ view options =
         3 ->
             version_3
 
+        4 ->
+            version_4
+
         _ ->
             div [ css [ TH.containerWrapPDF, TW.py_8, TW.border, TW.border_red_900 ] ] [ text "Want to create your own layout?" ]
 
@@ -170,6 +173,31 @@ version_3 =
         ]
 
 
+version_4 : Html msg
+version_4 =
+    header
+        [ css
+            [ TW.relative
+            , TW.bg_white
+            , TW.py_8
+            ]
+        ]
+        [ div [ css [ TH.containerWrapPDF ] ]
+            [ div
+                [ css
+                    [ TW.flex
+                    , TW.justify_between
+                    , TW.items_center
+                    ]
+                ]
+                [ div [ css [ TW.block, TW.w_36 ] ]
+                    [ TI.logoMoons ]
+                , info_moons <| hex "000"
+                ]
+            ]
+        ]
+
+
 info : Color -> Html msg
 info valColor =
     div [ css [ color valColor ] ]
@@ -183,4 +211,16 @@ info valColor =
             , text "OX4 2JY, United Kingdom"
             ]
         , p [ css [ TW.font_bold ] ] [ text "www.probitas-europe.com" ]
+        ]
+
+
+info_moons : Color -> Html msg
+info_moons valColor =
+    div [ css [ color valColor ] ]
+        [ p [ class "font-hairline text-sm leading-tight" ]
+            [ text "53/66 Baghramyan street,"
+            , br [] []
+            , text "Yerevan, Armenia"
+            ]
+        , p [ css [ TW.font_bold ] ] [ text "moons.am" ]
         ]

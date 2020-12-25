@@ -1,0 +1,29 @@
+
+M
+src/Components/Footer/V_1.elm,d\d\dde057236e883ec6c03c69ef2adc536b3afaa515
+P
+ src/Components/Footer/Footer.elm,f\9\f97e14fa4bfb7eff5ca4bbbb112a57ba2bebba2c
+P
+ src/Components/Header/Header.elm,7\b\7b56f47395144acf47cf320f967c527f5a42fb99
+@
+src/PF/Color.elm,9\0\90b85dbd388b7c736d027d2aa7f6e78b54f478ed
+D
+src/Spa/Document.elm,9\2\928b6adc1186efab45230d83a7ff5aa3176aa769
+>
+src/PF/Svg.elm,2\9\2961fdb8dd4dadcf79a6f689d80cb5454cf7665b
+A
+src/Pages/Top.elm,8\b\8b6172300b7c97e32271f043125189b0d5b30f36
+B
+src/PF/Element.elm,9\2\927ab33290b7e216c310d984a437f93ca947df08
+P
+ src/Components/Switch/Switch.elm,3\4\34f7821020f14ca2666b86c96f73ab22404c0dcd
+>
+src/Shared.elm,1\8\189267794fca365d3bdd1967392274f8335181fb
+A
+public/index.html,f\4\f43ecdf8d666ee908aacce037b4cd72159e4741b
+D
+src/Translations.elm,0\8\08fdbf2e8da59839cd7eec6211ed2e91e5d10024
+>
+public/main.js,3\b\3b020e670dfa85cbee366aec1f877c72bcf43d61
+F
+src/Pages/NotFound.elm,f\3\f3b32820ce2bf1c70b23c06f2316b47a954a32a7

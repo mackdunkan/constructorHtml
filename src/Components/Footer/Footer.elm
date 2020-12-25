@@ -25,6 +25,9 @@ view options =
         3 ->
             version_3
 
+        4 ->
+            version_4
+
         _ ->
             div [ css [ TH.containerWrapPDF, TW.py_8, TW.border, TW.border_red_900 ] ] [ text "Want to create your own layout?" ]
 
@@ -98,5 +101,20 @@ version_3 =
                         [ text "probitas.support@probitas-europe.com" ]
                     ]
                 ]
+            ]
+        ]
+
+
+version_4 : Html msg
+version_4 =
+    footer
+        [ css
+            [ TW.relative
+            , TW.bg_white
+            , TW.py_4
+            ]
+        ]
+        [ div [ css [ TH.containerWrapPDF ] ]
+            [ div [ css [ color <| TC.blue_dark, TW.text_xs ] ] [ text "“MEPAY” limited liability company /registration number 264.110.1122587, TIN00219684/" ]
             ]
         ]

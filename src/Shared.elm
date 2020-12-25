@@ -65,7 +65,7 @@ init : Flags -> Url -> Key -> ( Model, Cmd Msg )
 init flags url key =
     case Json.Decode.decodeValue translationsDecoder flags of
         Ok translations ->
-            ( Model url key (Initialized translations) (Layout 3 3), Cmd.none )
+            ( Model url key (Initialized translations) (Layout 4 4), Cmd.none )
 
         Err err ->
             ( Model url key (Failed err) (Layout 0 0), Cmd.none )
@@ -103,8 +103,9 @@ view { page, toMsg } model =
     { title = page.title
     , body =
         [ Css.ModernNormalize.globalStyledHtml
-        , globalCss
-        , node "link" [ href "https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap", rel "stylesheet" ] []
+
+        --, globalCss
+        --, node "link" [ href "https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap", rel "stylesheet" ] []
         , case model.translations of
             Initialized t ->
                 div []

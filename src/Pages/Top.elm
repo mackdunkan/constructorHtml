@@ -57,32 +57,12 @@ view : Url Params -> Document Msg
 view { params } =
     { title = "Homepage"
     , body =
-        [ sectionNamePage
+        [ TE.sectionNamePage "Corporate Account Statement" "Probitas Fidelis Ltd is registered in England and" TW.text_center
         , sectionBankAccount
         , sectionBlockInfo
         , div [] (List.map sectionContact dataContact)
         ]
     }
-
-
-sectionNamePage : Html msg
-sectionNamePage =
-    div
-        [ css
-            [ TW.my_4
-            ]
-        ]
-        [ h1
-            [ css
-                [ color <| TC.blue_dark
-                , TW.text_3xl
-                , TW.font_bold
-                , TW.text_center
-                ]
-            ]
-            [ text "Corporate Account Statement" ]
-        , p [ css [ color <| TC.blue_dark, TW.text_center, TW.text_xl ] ] [ text "Probitas Fidelis Ltd is registered in England and" ]
-        ]
 
 
 sectionBlockInfo : Html msg
@@ -113,7 +93,8 @@ sectionBankAccount =
         , div [ css [ TW.mt_4, border, TW.rounded_lg ] ]
             [ table
                 [ css
-                    [ TW.border_collapse
+                    [ TW.w_full
+                    , TW.border_collapse
                     , TW.overflow_hidden
                     , borderStyle hidden
                     , color TC.blue_dark
